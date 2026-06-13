@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Música D'Manuel - Contacto</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Barra Superior Informativa */
+        .top-bar {
+            background: #f5f5f5; 
+            height: 35px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        #mensaje-carrusel {
+            position: absolute;
+            white-space: nowrap;
+            color: #111; 
+            font-size: .9rem;
+            font-weight: 600;
+            left: 100%;
+        }
+
+        /* Encabezado y Navegación */
+        header {
+            background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 99999;
+            box-shadow: 0 2px 10px rgba(0,0,0,.10);
+            border-bottom: 1px solid #e5dccd;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 20px;
+            height: 60px;
+            position: relative;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #d4af37;
+        }
+
+        /* Menú Desplegable */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 240px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.15);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 18px;
+            margin: 0;
+            color: #222;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: #b68d40;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Redes Sociales del Menú */
+        .instagram-menu {
+            position: absolute;
+            right: 65px; 
+            color: #E1306C !important; 
+            font-size: 24px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .instagram-menu:hover {
+            transform: scale(1.15);
+        }
+
+        .facebook-menu {
+            position: absolute;
+            right: 25px; 
+            color: #1877F2 !important; 
+            font-size: 24px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .facebook-menu:hover {
+            transform: scale(1.15);
+        }
+
+        /* BANNER HERO OPTIMIZADO */
+        .contacto-hero-banner {
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://i.postimg.cc/L4vpz6Jy/banner-home-music-optimizado.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 35px 20px;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 260px;
+        }
+
+        .hero-banner-content {
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-banner-logo {
+            width: 100%;
+            max-width: 380px;
+            margin-bottom: -5px;
+            filter: drop-shadow(0 0 20px rgba(255,215,0,.8));
+        }
+
+        .hero-banner-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: -15px;
+            margin-bottom: 5px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,.5);
+        }
+
+        /* Contenedor de la Sección de Contacto */
+        .contacto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contacto-principal-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            color: #111;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .contacto-subtitulo {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+            line-height: 1.6;
+        }
+
+        /* Disposición en dos columnas */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+        }
+
+        /* Columna Izquierda: Info y Mapa */
+        .contacto-info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: #b68d40;
+            margin-top: 3px;
+        }
+
+        .info-text h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 5px;
+        }
+
+        .info-text p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .mapa-contenedor {
+            width: 100%;
+            height: 290px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .mapa-contenedor iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Columna Derecha: Formulario */
+        .formulario-box {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .formulario-box h3 {
+            font-size: 1.4rem;
+            color: #111;
+            margin-bottom: 25px;
+            font-weight: 600;
+            border-bottom: 2px solid #e5dccd;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            color: #333;
+            transition: border-color 0.3s;
+            background: #fafafa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #b68d40;
+            background: #fff;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            background: #111;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-enviar:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
+        /* Botón de WhatsApp Flotante */
+        .whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,.3);
+            z-index: 9999;
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Pie de Página */
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        /* Responsivo */
+        @media(max-width: 768px) {
+            .contacto-hero-banner {
+                min-height: 210px;
+                padding: 20px 15px;
+            }
+            .hero-banner-titulo {
+                font-size: 2.2rem;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+            }
+            .facebook-menu, .instagram-menu {
+                position: static;
+                margin-left: 15px;
+            }
+            .contacto-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .formulario-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div id="mensaje-carrusel">
+            💳 3 cuotas sin intereses con tarjetas BCP
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <a href="index.html">Inicio</a>
+            
+            <div class="dropdown">
+                <a href="tienda.html">Tienda Virtual</a>
+                <div class="dropdown-content">
+                    <a href="tienda.html#guitarras"> Guitarras</a>
+                    <a href="tienda.html#teclados"> Teclados y Pianos</a>
+                    <a href="tienda.html#percusion"> Percusión y Baterías</a>
+                </div>
+            </div>
+
+            <a href="contacto.html" class="active">Contacto</a>
+     <div class="dropdown">
+    <a href="presentacion.html">Presentación</a>
+    <div class="dropdown-content">
+        <a href="presentacion.html?member=m1"> Bárbara Rojas</a>
+        <a href="presentacion.html?member=m2"> Héctor Ramos</a>
+        <a href="presentacion.html?member=m3"> Luis Ángel Roque</a>
+        <a href="presentacion.html?member=m4"> Juan Ponce</a>
+        <a href="presentacion.html?member=m5"> Gianella Rodríguez</a>
+        <a href="presentacion.html?member=m6"> Joselyn Paredes</a>
+        <a href="presentacion.html?member=m7"> Narciso Quispe</a>
+        <a href="presentacion.html?member=m8"> Flor Q. Coto</a>
+        <a href="presentacion.html?member=m9"> Flor Q. Huari</a>
+    </div>
+</div>
+
+            <a href="https://www.instagram.com/homemusica.dmanuel/" target="_blank" class="instagram-menu">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/14ggmo8djeP/" target="_blank" class="facebook-menu">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </nav>
+    </header>
+
+    <section class="contacto-hero-banner">
+        <div class="hero-banner-content">
+            <img src="https://i.postimg.cc/qq9VmWLX/Chat-GPT-Image-6-jun-2026-09-47-37-p-m-(2).png" alt="Logo Home Música D'Manuel" class="hero-banner-logo">
+            <h1 class="hero-banner-titulo">Home Music D'Manuel</h1>
+        </div>
+    </section>
+
+    <main class="contacto-container">
+        
+        <h2 class="contacto-principal-titulo">Contáctanos</h2>
+        <p class="contacto-subtitulo">¿Tienes alguna duda o estás buscando un instrumento en especial? Escríbenos o visítanos, nuestro equipo está listo para ayudarte.</p>
+
+        <div class="contacto-grid">
+            
+            <div class="contacto-info-box">
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="info-text">
+                        <h3>Nuestra Ubicación</h3>
+                        <p>Av. Alfonso Ugarte 485, Lima, Lima, Perú</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="info-text">
+                        <h3>Teléfono / WhatsApp</h3>
+                        <p>+51 939 290 992</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="info-text">
+                        <h3>Correo Electrónico</h3>
+                        <p>homemusicmanuel@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="mapa-contenedor">
+                    <iframe
+src="https://maps.google.com/maps?q=Av.%20Alfonso%20Ugarte%20485%20Lima&t=&z=15&ie=UTF8&iwloc=&output=embed"
+width="100%"
+height="350">
+</iframe>
+                </div>
+
+            </div>
+
+            <div class="formulario-box">
+                <h3>Envíanos un mensaje</h3>
+                
+                <form action="https://formsubmit.co/homemusicmanuel@gmail.com" method="POST">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="¡Nuevo mensaje desde la sección de Contacto!">
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="name" class="form-control" placeholder="Ej. Juan Pérez" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="ejemplo@correo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono / Celular</label>
+                        <input type="tel" id="telefono" name="phone" class="form-control" placeholder="Ej. 987654321">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje o Instrumento que buscas</label>
+                        <textarea id="mensaje" name="message" class="form-control" placeholder="Escribe aquí tu consulta en detalle..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+                </form>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        Home Música D'Manuel © 2026
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me/51939290992" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const mensajes = [
+            "💳 3 cuotas sin intereses con tarjetas BCP",
+            "🚚 Envíos, cambios y devoluciones hasta 60 días",
+            "🎵 Tenemos todas las marcas: nacionales e internacionales",
+            "🎁 Suscríbete y obtén 10% de descuento en tu primera compra"
+        ];
+
+        let indice = 0;
+        const mensaje = document.getElementById("mensaje-carrusel");
+
+        function mostrarMensaje(){
+            mensaje.innerHTML = mensajes[indice];
+            mensaje.style.transition = "none";
+            mensaje.style.left = "100%";
+
+            setTimeout(() => {
+                mensaje.style.transition = "left 1s ease";
+                mensaje.style.left = "50%";
+                mensaje.style.transform = "translateX(-50%)";
+            }, 100);
+
+            setTimeout(() => {
+                mensaje.style.transition = "left 1s ease";
+                mensaje.style.left = "-100%";
+            }, 3100);
+
+            indice++;
+            if(indice >= mensajes.length){ indice = 0; }
+        }
+
+        mostrarMensaje();
+        setInterval(mostrarMensaje, 4200);
+    </script>
+</body>
+</html>

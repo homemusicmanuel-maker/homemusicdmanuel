@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Música D'Manuel - Inicio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Barra Superior Informativa (Modificada a Blanco Humo) */
+        .top-bar {
+            background: #f5f5f5; /* Fondo Blanco Humo */
+            height: 35px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #mensaje-carrusel {
+            position: absolute;
+            white-space: nowrap;
+            color: #111; /* Letras Negras */
+            font-size: .9rem;
+            font-weight: 600;
+            left: 100%;
+        }
+
+        /* Encabezado y Navegación */
+        header {
+            background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 99999;
+            box-shadow: 0 2px 10px rgba(0,0,0,.10);
+            border-bottom: 1px solid #e5dccd;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 20px;
+            height: 60px;
+            position: relative;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* Menú Desplegable */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 240px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.15);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 18px;
+            margin: 0;
+            color: #222;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: #b68d40;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Redes Sociales del Menú */
+        .instagram-menu {
+            position: absolute;
+            right: 65px; /* Al lado de Facebook */
+            color: #E1306C !important; /* Color oficial de Instagram */
+            font-size: 24px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .instagram-menu:hover {
+            transform: scale(1.15);
+        }
+
+        .facebook-menu {
+            position: absolute;
+            right: 25px; /* Ajustado para dar espacio */
+            color: #1877F2 !important; /* Color oficial de Facebook */
+            font-size: 24px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .facebook-menu:hover {
+            transform: scale(1.15);
+        }
+
+        /* Sección Hero (Inicio) */
+        .hero {
+            min-height: calc(100vh - 95px);
+            background: linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)),
+                        url('https://i.postimg.cc/L4vpz6Jy/banner-home-music-optimizado.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-home {
+            width: 100%;
+            max-width: 380px;
+            margin-bottom: -5px;
+            filter: drop-shadow(0 0 20px rgba(255,215,0,.8));
+        }
+
+        .logo-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem !important;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,.5);
+        }
+
+        .descripcion-home {
+            font-size: 1.1rem !important;
+            line-height: 1.6;
+            max-width: 850px;
+            margin: 0 auto 25px auto;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #d4af37;
+            color: #111;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: .3s;
+        }
+
+        .hero-btn:hover {
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Botón de WhatsApp Flotante */
+        .whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,.3);
+            z-index: 9999;
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Pie de Página */
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* Responsivo */
+        @media(max-width:768px){
+            .logo-titulo {
+                font-size: 2rem !important;
+            }
+            .descripcion-home {
+                font-size: 1rem !important;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+            }
+            .facebook-menu, .instagram-menu {
+                position: static;
+                margin-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div id="mensaje-carrusel">
+            💳 3 cuotas sin intereses con tarjetas BCP
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <a href="index.html">Inicio</a>
+            
+            <div class="dropdown">
+                <a href="tienda.html">Tienda Virtual</a>
+                <div class="dropdown-content">
+                    <a href="tienda.html#guitarras">Guitarras</a>
+                    <a href="tienda.html#teclados">Teclados y Pianos</a>
+                    <a href="tienda.html#percusion">Percusión y Baterías</a>
+                </div>
+            </div>
+
+            <a href="contacto.html">Contacto</a>
+<div class="dropdown">
+    <a href="presentacion.html">Presentación</a>
+    <div class="dropdown-content">
+        <a href="presentacion.html?member=m1"> Bárbara Rojas</a>
+        <a href="presentacion.html?member=m2"> Héctor Ramos</a>
+        <a href="presentacion.html?member=m3"> Luis Ángel Roque</a>
+        <a href="presentacion.html?member=m4"> Juan Ponce</a>
+        <a href="presentacion.html?member=m5"> Gianella Rodríguez</a>
+        <a href="presentacion.html?member=m6"> Joselyn Paredes</a>
+        <a href="presentacion.html?member=m7"> Narciso Quispe</a>
+        <a href="presentacion.html?member=m8"> Flor Q. Coto</a>
+        <a href="presentacion.html?member=m9"> Flor Q. Huari</a>
+    </div>
+</div>
+
+            <a href="https://instagram.com" target="_blank" class="instagram-menu">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="facebook-menu">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <img src="https://i.postimg.cc/qq9VmWLX/Chat-GPT-Image-6-jun-2026-09-47-37-p-m-(2).png" class="logo-home" alt="Logo Home Music D'Manuel">
+            
+            <h1 class="logo-titulo">Home Music D'Manuel</h1>
+            
+            <p class="descripcion-home">
+                En Home Music D'Manuel encontrarás los mejores instrumentos musicales, accesorios y equipos de las mejores marcas nacionales e internacionales. Nuestro compromiso es brindarte calidad, confianza y asesoría especializada para que desarrolles todo tu talento y vivas tu pasión por la música al máximo.
+            </p>
+
+            <div class="botones-home">
+                <a href="tienda.html" class="hero-btn">Ver Catálogo</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Home Música D'Manuel © 2026
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me/51939290992" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const mensajes = [
+            "💳 3 cuotas sin intereses con tarjetas BCP",
+            "🚚 Envíos, cambios y devoluciones hasta 60 días",
+            "🎵 Tenemos todas las marcas: nacionales e internacionales",
+            "🎁 Suscríbete y obtén 10% de descuento en tu primera compra"
+        ];
+
+        let indice = 0;
+        const mensaje = document.getElementById("mensaje-carrusel");
+
+        function mostrarMensaje(){
+            mensaje.innerHTML = mensajes[indice];
+            mensaje.style.transition = "none";
+            mensaje.style.left = "100%";
+
+            setTimeout(() => {
+                mensaje.style.transition = "left 1s ease";
+                mensaje.style.left = "50%";
+                mensaje.style.transform = "translateX(-50%)";
+            }, 100);
+
+            setTimeout(() => {
+                mensaje.style.transition = "left 1s ease";
+                mensaje.style.left = "-100%";
+            }, 3100);
+
+            indice++;
+            if(indice >= mensajes.length){ indice = 0; }
+        }
+
+        mostrarMensaje();
+        setInterval(mostrarMensaje, 4200);
+    </script>
+</body>
+</html>

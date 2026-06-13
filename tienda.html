@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Música D'Manuel - Tienda Virtual</title>
+    
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-padding-top: 110px; 
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Barra Superior Informativa (Blanco Humo) */
+        .top-bar {
+            background: #f5f5f5; 
+            height: 35px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        #mensaje-carrusel {
+            position: absolute;
+            white-space: nowrap;
+            color: #111; 
+            font-size: .9rem;
+            font-weight: 600;
+            left: 100%;
+        }
+
+        /* Encabezado y Navegación */
+        header {
+            background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 99999;
+            box-shadow: 0 2px 10px rgba(0,0,0,.10);
+            border-bottom: 1px solid #e5dccd;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 20px;
+            height: 60px;
+            position: relative;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #d4af37;
+        }
+
+        /* Menú Desplegable */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 240px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.15);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 18px;
+            margin: 0;
+            color: #222;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: #b68d40;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Redes Sociales del Menú */
+        .instagram-menu {
+            position: absolute;
+            right: 65px; 
+            color: #E1306C !important; 
+            font-size: 24px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .instagram-menu:hover {
+            transform: scale(1.15);
+        }
+
+        .facebook-menu {
+            position: absolute;
+            right: 25px; 
+            color: #1877F2 !important; 
+            font-size: 24px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .facebook-menu:hover {
+            transform: scale(1.15);
+        }
+
+        /* BANNER HERO - CON TRANSIÓN SUAVE */
+        .tienda-hero-banner {
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://i.postimg.cc/L4vpz6Jy/banner-home-music-optimizado.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 10px 15px; 
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 380px; 
+            
+
+        }
+
+
+
+        .hero-banner-content {
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-banner-logo {
+            width: 100%;
+            max-width: 380px;
+            margin-bottom: -5px;
+            filter: drop-shadow(0 0 20px rgba(255,215,0,.8));
+        }
+
+        .hero-banner-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem !important;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: -35px;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,.5);
+        }
+
+        .hero-banner-subtitulo {
+            color: #e5dccd;
+            margin-bottom: 30px;
+            font-size: 1.15rem;
+            font-weight: 400;
+            max-width: 650px;
+            line-height: 1.5;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+
+        .btn-ver-catalogo {
+            display: inline-block;
+            background-color: #d1a12c; 
+            color: #111;
+            text-decoration: none;
+            padding: 14px 45px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 50px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-ver-catalogo:hover {
+            background-color: #be9020;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Contenedor General de la Tienda */
+        .tienda-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .categoria-seccion {
+            margin-bottom: 70px;
+        }
+
+        .categoria-titulo {
+            font-family: 'Poppins', sans-serif; 
+            font-size: 1.8rem;
+            color: #111;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #e5dccd;
+            padding-bottom: 10px;
+        }
+
+        /* Rejilla de Productos */
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        /* Tarjeta de Producto */
+        .producto-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .producto-imagen-box {
+            width: 100%;
+            height: 220px;
+            background: #ffffff; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer; 
+        }
+
+        .producto-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            padding: 12px;       
+        }
+
+        .producto-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: center;
+            border-top: 1px solid #f9f9f9;
+        }
+
+        .producto-nombre {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 6px;
+            min-height: 50px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .producto-nombre:hover {
+            color: #b68d40;
+            text-decoration: underline;
+        }
+
+        .producto-precio {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #b68d40;
+            margin-bottom: 12px;
+        }
+
+        .producto-descripcion {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .btn-comprar {
+            display: block;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: .3s;
+            margin-top: auto;
+        }
+
+        .btn-comprar:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
+        /* Estilos para la Ventana Modal Flotante */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 100000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.6); 
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.activo {
+            display: flex;
+        }
+
+        .modal-contenido {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 750px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            animation: entradaModal 0.3s ease-out;
+        }
+
+        @keyframes entradaModal {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #888;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .2s;
+            z-index: 11;
+        }
+
+        .modal-cerrar:hover {
+            color: #111;
+        }
+
+        .modal-body {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .modal-izquierda {
+            flex: 1;
+            max-width: 300px;
+            height: 300px;
+            background: #ffffff; 
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #eee;
+            position: relative; 
+        }
+
+        .modal-izquierda img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            padding: 15px;
+        }
+
+        .galeria-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(17, 17, 17, 0.6);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .galeria-btn:hover {
+            background: rgba(212, 175, 55, 0.9);
+            color: #111;
+        }
+
+        .galeria-btn.ant { left: 8px; }
+        .galeria-btn.sig { right: 8px; }
+
+        .modal-derecha {
+            flex: 1.2;
+        }
+
+        .modal-derecha h2 {
+            font-family: 'Poppins', sans-serif; 
+            font-size: 1.5rem;
+            color: #111;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #e5dccd;
+            padding-bottom: 5px;
+        }
+
+        .modal-derecha h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #b68d40;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-derecha ul {
+            list-style: none;
+        }
+
+        .modal-derecha ul li {
+            font-size: 0.88rem;
+            color: #444;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 22px;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .modal-derecha ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #b68d40;
+            font-weight: bold;
+        }
+
+        /* Botón de WhatsApp Flotante */
+        .whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,.3);
+            z-index: 9999;
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        @media(max-width:768px){
+            .hero-banner-titulo {
+                font-size: 2.2rem;
+            }
+            .tienda-hero-banner {
+                min-height: 210px; 
+                padding: 20px 15px;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+            }
+            .facebook-menu, .instagram-menu {
+                position: static;
+                margin-left: 15px;
+            }
+            .productos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 15px;
+            }
+            .producto-imagen-box {
+                height: 180px;
+            }
+            .modal-body {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .modal-izquierda {
+                max-width: 100%;
+                height: 220px;
+            }
+            .modal-contenido {
+                padding: 20px;
+                width: 95%;
+            }
+            .modal-derecha h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div id="mensaje-carrusel">
+            💳 3 cuotas sin intereses con tarjetas BCP
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <a href="index.html">Inicio</a>
+            
+            <div class="dropdown">
+                <a href="tienda.html" class="active">Tienda Virtual</a>
+                <div class="dropdown-content">
+                    <a href="tienda.html#guitarras"> Guitarras</a>
+                    <a href="tienda.html#teclados"> Teclados y Pianos</a>
+                    <a href="tienda.html#percusion"> Percusión y Baterías</a>
+                </div>
+            </div>
+
+            <a href="contacto.html">Contacto</a>
+<div class="dropdown">
+    <a href="presentacion.html">Presentación</a>
+    <div class="dropdown-content">
+        <a href="presentacion.html?member=m1"> Bárbara Rojas</a>
+        <a href="presentacion.html?member=m2"> Héctor Ramos</a>
+        <a href="presentacion.html?member=m3"> Luis Ángel Roque</a>
+        <a href="presentacion.html?member=m4"> Juan Ponce</a>
+        <a href="presentacion.html?member=m5"> Gianella Rodríguez</a>
+        <a href="presentacion.html?member=m6"> Joselyn Paredes</a>
+        <a href="presentacion.html?member=m7"> Narciso Quispe</a>
+        <a href="presentacion.html?member=m8"> Flor Q. Coto</a>
+        <a href="presentacion.html?member=m9"> Flor Q. Huari</a>
+    </div>
+</div>
+
+            <a href="https://www.instagram.com/homemusica.dmanuel/" target="_blank" class="instagram-menu">
+                <i class="fab fa-instagram"></i>
+            </a>
+<a href="https://www.facebook.com/share/14ggmo8djeP/" target="_blank" class="facebook-menu">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </nav>
+    </header>
+
+    <section class="tienda-hero-banner">
+        <div class="hero-banner-content">
+            <img src="https://i.postimg.cc/qq9VmWLX/Chat-GPT-Image-6-jun-2026-09-47-37-p-m-(2).png" alt="Logo Home Música D'Manuel" class="hero-banner-logo">
+            <h1 class="hero-banner-titulo">Home Music D'Manuel</h1>
+            <p class="hero-banner-subtitulo">Explora instrumentos seleccionados con los más altos estándares de calidad.</p>
+            <button class="btn-ver-catalogo" onclick="location.href='#guitarras'">Ver Catálogo</button>
+        </div>
+    </section>
+
+    <main class="tienda-container">
+
+        <section id="guitarras" class="categoria-seccion">
+            <h2 class="categoria-titulo">🎸 Guitarras</h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('ukulele')">
+                        <img src="https://drive.google.com/thumbnail?id=1dPDdIsZnCCATW-ICUmfgkK7MnuOTaD1s&sz=w1000" class="producto-img" alt="Fender Concert Ukulele">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('ukulele')">Fender Concert Ukulele</h3>
+                        <p class="producto-precio">S/ 599.00</p>
+                        <p class="producto-descripcion">El Fender Concert Ukulele combina diseño elegante, sonido brillante y gran comodidad. Su tamaño concierto ofrece un equilibrio perfecto entre facilidad de ejecución y volumen, siendo ideal para principiantes y músicos avanzados.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20el%20Fender%20Concert%20Ukulele" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('fenderAcoustic')">
+                        <img src="https://drive.google.com/thumbnail?id=14-5fZ_DUTonAG4hEu3qwdAwB8oOHDepH&sz=w1000" class="producto-img" alt="Fender CD-60S Acoustic">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('fenderAcoustic')">Fender CD-60S Acoustic</h3>
+                        <p class="producto-precio">S/ 899.00</p>
+                        <p class="producto-descripcion">La Fender CD-60S Acoustic es una guitarra acústica diseñada para ofrecer comodidad, excelente proyección sonora y facilidad de ejecución. Es una de las favoritas para estudiantes y aficionados que buscan calidad y buen sonido a un precio accesible.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20la%20guitarra%20Fender%20CD-60S%20Acoustic" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('yamahaF310')">
+                        <img src="https://drive.google.com/thumbnail?id=1xYHx0AJEGOpBiiQQKM6DHIvLeYTJXBNM&sz=w1000" class="producto-img" alt="Yamaha F310">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('yamahaF310')">Yamaha F310</h3>
+                        <p class="producto-precio">S/ 699.00</p>
+                        <p class="producto-descripcion">La Yamaha F310 es una de las guitarras acústicas más recomendadas para principiantes debido a su facilidad de uso, excelente calidad de construcción y sonido equilibrado. Es ideal para quienes desean iniciar su aprendizaje musical.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20la%20guitarra%20Yamaha%20F310" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('yamahaPacifica')">
+                        <img src="https://drive.google.com/thumbnail?id=1Z8DYkYXtCu3GLJliY2UqMS2R4vjj9TB-&sz=w1000" class="producto-img" alt="Yamaha Pacifica 112V">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('yamahaPacifica')">Yamaha Pacifica 112V</h3>
+                        <p class="producto-precio">S/ 1,599.00</p>
+                        <p class="producto-descripcion">La Yamaha Pacifica 112V es una guitarra eléctrica muy popular por su excelente relación calidad-precio. Su combinación de comodidad, versatilidad y calidad de construcción la convierte en una de las mejores opciones para estudiantes y músicos en crecimiento.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20la%20guitarra%20Yamaha%20Pacifica%20112V" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('stratocaster')">
+                        <img src="https://drive.google.com/thumbnail?id=1KmqlZ6SlPI86Tb6gFIqn8d680H2VwA2j&sz=w1000" class="producto-img" alt="Fender Player Stratocaster">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('stratocaster')">Fender Player Stratocaster</h3>
+                        <p class="producto-precio">S/ 3,499.00</p>
+                        <p class="producto-descripcion">La Fender Player Stratocaster es una de las guitarras eléctricas más reconocidas del mundo. Destaca por su sonido versátil, comodidad al tocar y diseño icónico, siendo ideal para géneros como rock, blues, pop y funk. Es una excelente opción tanto para músicos intermedios como profesionales.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20la%20guitarra%20Fender%20Player%20Stratocaster" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="teclados" class="categoria-seccion">
+            <h2 class="categoria-titulo">🎹 Teclados y Pianos</h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('casioCTS300')">
+                        <img src="https://drive.google.com/thumbnail?id=1G6UrNpjg6KdCY7xxnChZExCduowqCG36&sz=w1000" class="producto-img" alt="Casio CT-S300">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('casioCTS300')">Casio CT-S300</h3>
+                        <p class="producto-precio">S/ 999.00</p>
+                        <p class="producto-descripcion">Teclado portátil de 61 teclas con respuesta al tacto y diseño ligero. Ideal para estudiantes y principiantes que desean aprender música y practicar en cualquier lugar.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20el%20Casio%20CT-S300" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('casioLKS250')">
+                        <img src="https://drive.google.com/thumbnail?id=1lKMyKVWKfV-Xp8zR9Fpd0LeM5I6f_kVm&sz=w1000" class="producto-img" alt="Casio LK-S250">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('casioLKS250')">Casio LK-S250</h3>
+                        <p class="producto-precio">S/ 1,250.00</p>
+                        <p class="producto-descripcion">Teclado de 61 teclas con sistema de teclas iluminadas que facilita el aprendizaje. Ideal para niños y principiantes que están dando sus primeros pasos en la música.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20el%20Casio%20LK-S250" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('korgB2')">
+                        <img src="https://drive.google.com/thumbnail?id=1rDowOKujsYe9cFt-um9EXEC-TPNKfx-G&sz=w1000" class="producto-img" alt="Korg B2">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('korgB2')">Korg B2</h3>
+                        <p class="producto-precio">S/ 2,299.00</p>
+                        <p class="producto-descripcion">Piano digital de 88 teclas con sonido realista y conexión USB. Recomendado para estudiantes de nivel intermedio y músicos que buscan una experiencia similar a la de un piano acústico.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20el%20Korg%20B2" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('rolandGoPiano88')">
+                        <img src="https://drive.google.com/thumbnail?id=1BQ9Bd_6UaNvNOoLzMmsN6-omf-l40EdC&sz=w1000" class="producto-img" alt="Roland GO Piano 88">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('rolandGoPiano88')">Roland GO Piano 88</h3>
+                        <p class="producto-precio">S/ 1,650.00</p>
+                        <p class="producto-descripcion">Piano digital portátil de 88 teclas con conectividad Bluetooth. Perfecto para estudiantes que desean practicar con aplicaciones educativas y dispositivos móviles.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20el%20Roland%20GO%20Piano%2088" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('yamahaPSRE383')">
+                        <img src="https://drive.google.com/thumbnail?id=1EwD8SgVKQ9wyL0bcQKzPxeWq5icmfu5s&sz=w1000" class="producto-img" alt="Yamaha PSR-E383">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('yamahaPSRE383')">Yamaha PSR-E383</h3>
+                        <p class="producto-precio">S/ 1,099.00</p>
+                        <p class="producto-descripcion">Teclado portátil de 61 teclas con múltiples sonidos y funciones educativas. Perfecto para principiantes, ya que facilita el aprendizaje y la práctica de nuevas canciones.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20el%20Yamaha%20PSR-E383" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="percusion" class="categoria-seccion">
+            <h2 class="categoria-titulo">🥁 Percusión y Baterías</h2>
+            <div class="productos-grid">
+                
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('yamahaRydeen')">
+                        <img src="https://drive.google.com/thumbnail?id=131PFMsMZGR6ciY2tiR6M8qkRXIM9kris&sz=w1000" class="producto-img" alt="Batería Yamaha Rydeen">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('yamahaRydeen')">Batería Yamaha Rydeen</h3>
+                        <p class="producto-precio">S/ 5,000.00</p>
+                        <p class="producto-descripcion">Batería acústica de alta calidad diseñada para estudiantes avanzados y músicos profesionales. Destaca por su excelente proyección sonora, durabilidad y versatilidad para diversos estilos musicales como rock, pop y jazz.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20la%20Batería%20Yamaha%20Rydeen" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('cajonProfesional')">
+                        <img src="https://drive.google.com/thumbnail?id=1OS85SZTBO6Yoq7NPnBR_iF5F6HvkVjuG&sz=w1000" class="producto-img" alt="Cajón Peruano Profesional">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('cajonProfesional')">Cajón Peruano Profesional</h3>
+                        <p class="producto-precio">S/ 900.00</p>
+                        <p class="producto-descripcion">Cajón peruano de fabricación profesional, ideal para música criolla, flamenco y fusión. Ofrece un sonido potente, graves profundos y excelente respuesta en los tonos agudos, siendo una gran opción para músicos exigentes.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20el%20Cajón%20Peruano%20Profesional" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('congaProfesional')">
+                        <img src="https://drive.google.com/thumbnail?id=1mu5dqZr2OH8bedxy19lmm4txEKSSOsIS&sz=w1000" class="producto-img" alt="Conga Profesional">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('congaProfesional')">Conga Profesional</h3>
+                        <p class="producto-precio">S/ 3,000.00</p>
+                        <p class="producto-descripcion">Conga profesional fabricada con materiales de alta resistencia que garantizan un sonido cálido, profundo y definido. Ideal para presentaciones en vivo, estudios de grabación y agrupaciones de música latina.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20la%20Conga%20Profesional" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('platilloGonBops')">
+                        <img src="https://drive.google.com/thumbnail?id=115J5NqgelHSQhAHUlKJBLWewkW81wQtc&sz=w1000" class="producto-img" alt="Platillo Profesional Gon Bops">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('platilloGonBops')">Platillo Profesional Gon Bops</h3>
+                        <p class="producto-precio">S/ 1,100.00</p>
+                        <p class="producto-descripcion">Platillo profesional diseñado para proporcionar un sonido nítido, potente y equilibrado. Su rápida respuesta y excelente sustain lo convierten en una opción ideal para bateristas y percusionistas de todos los niveles.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20el%20Platillo%20Profesional%20Gon%20Bops" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-imagen-box" onclick="mostrarDetalles('timbalesGonBops')">
+                        <img src="https://drive.google.com/thumbnail?id=1Pzy7ec330-7k-iByFxaYJ1fjub2iAB_a&sz=w1000" class="producto-img" alt="Timbales Gon Bops">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-nombre" onclick="mostrarDetalles('timbalesGonBops')">Timbales Gon Bops</h3>
+                        <p class="producto-precio">S/ 1,800.00</p>
+                        <p class="producto-descripcion">Timbales de gran calidad y acabado profesional que ofrecen un sonido brillante y una excelente proyección. Perfectos para salsa, latin jazz, merengue y otros géneros tropicales.</p>
+                        <a href="https://wa.me/51939290992?text=Hola,%20deseo%20información%20sobre%20los%20Timbales%20Gon%20Bops" target="_blank" class="btn-comprar">Consultar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-producto" class="modal">
+        <div class="modal-contenido">
+            <span class="modal-cerrar" onclick="cerrarModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-izquierda">
+                    <button class="galeria-btn ant" onclick="cambiarFoto(-1)">❮</button>
+                    <img id="modal-img" src="" alt="Foto del instrumento">
+                    <button class="galeria-btn sig" onclick="cambiarFoto(1)">❯</button>
+                </div>
+                <div class="modal-derecha">
+                    <h2 id="modal-titulo">Nombre del Instrumento</h2>
+                    <h3>Características técnicas:</h3>
+                    <ul id="modal-caracteristicas">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Home Música D'Manuel © 2026
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me/51939290992" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        let fotosActualesModal = [];
+        let indiceFotoActual = 0;
+
+        // Base de Datos Completa de Modales
+        const datosModales = {
+            ukulele: {
+                titulo: "Fender Concert Ukulele",
+                img1: "1dPDdIsZnCCATW-ICUmfgkK7MnuOTaD1s", 
+                img2: "18NVIDYsa7zWbjKjws7CFG46ZU9Jf17ir", 
+                caracteristicas: [
+                    "Clavijero Fender de alta calidad.",
+                    "Cuerpo de caoba con sonido cálido y equilibrado.",
+                    "Diapasón cómodo para acordes y melodías.",
+                    "Puente resistente que mejora la transmisión del sonido.",
+                    "Acabados premium inspirados en los instrumentos Fender.",
+                    "Fondo y laterales cuidadosamente trabajados.",
+                    "Tamaño concierto que ofrece mayor volumen y comodidad."
+                ]
+            },
+            fenderAcoustic: {
+                titulo: "Fender CD-60S Acoustic",
+                img1: "14-5fZ_DUTonAG4hEu3qwdAwB8oOHDepH",
+                img2: "1BWJpGqV9-BywU4KGvdD3tv08SF1xvXq7",
+                caracteristicas: [
+                    "Tapa sólida de abeto que mejora la resonancia.",
+                    "Clavijero Fender cromado para una afinación estable.",
+                    "Boca de resonancia con excelente proyección de sonido.",
+                    "Diapasón suave y cómodo para principiantes.",
+                    "Puente resistente que mejora la transmisión de vibraciones.",
+                    "Laterales y fondo de caoba para un sonido cálido.",
+                    "Acabados de alta calidad característicos de Fender."
+                ]
+            },
+            yamahaF310: {
+                titulo: "Yamaha F310",
+                img1: "1xYHx0AJEGOpBiiQQKM6DHIvLeYTJXBNM",
+                img2: "1YN5LgQx_481Q_90Fvp3qkL9ewyL-a5Tk",
+                caracteristicas: [
+                    "Clavijero Yamaha resistente y preciso.",
+                    "Tapa de abeto para una mejor resonancia.",
+                    "Diapasón cómodo para el aprendizaje.",
+                    "Puente de palisandro resistente al uso continuo.",
+                    "Cuerpo tipo dreadnought con gran proyección sonora.",
+                    "Fondo y laterales de meranti que aportan calidez al sonido.",
+                    "Excelente estabilidad de afinación."
+                ]
+            },
+            yamahaPacifica: {
+                titulo: "Yamaha Pacifica 112V",
+                img1: "1Z8DYkYXtCu3GLJliY2UqMS2R4vjj9TB-",
+                img2: "16EnreaXl_yH4a0UC8bZYyiGYlfbzphOf",
+                caracteristicas: [
+                    "Clavijero Yamaha de alta precisión.",
+                    "Configuración de pastillas HSS (Humbucker + Single Coil).",
+                    "Diapasón de palisandro suave y cómodo.",
+                    "Puente con trémolo para mayor expresividad.",
+                    "Cuerpo ligero y ergonómico.",
+                    "Controles de volumen y tono fáciles de ajustar.",
+                    "Excelente versatilidad para diversos estilos musicales."
+                ]
+            },
+            stratocaster: {
+                titulo: "Fender Player Stratocaster",
+                img1: "1KmqlZ6SlPI86Tb6gFIqn8d680H2VwA2j",
+                img2: "10yWbESJ3JRuPGJIGADnI-8nUG0t-s0RI",
+                caracteristicas: [
+                    "Clavijero Fender de alta precisión para una afinación estable.",
+                    "Diapasón de maple cómodo y rápido para la ejecución.",
+                    "Tres pastillas Single Coil que ofrecen gran claridad y versatilidad tonal.",
+                    "Puente con trémolo para efectos de vibrato.",
+                    "Controles de volumen y tono para personalizar el sonido.",
+                    "Cuerpo de aliso con acabado Sunburst clásico.",
+                    "Construcción ergonómica que brinda comodidad durante largas sesiones."
+                ]
+            },
+            casioCTS300: {
+                titulo: "Casio CT-S300",
+                img1: "1G6UrNpjg6KdCY7xxnChZExCduowqCG36",
+                img2: "1G6UrNpjg6KdCY7xxnChZExCduowqCG36",
+                caracteristicas: [
+                    "61 teclas sensibles al tacto para una interpretación más expresiva.",
+                    "Más de 400 sonidos y ritmos integrados.",
+                    "Función Dance Music para crear música de manera sencilla.",
+                    "Diseño compacto y portátil con asa incorporada.",
+                    "Conectividad USB para aprendizaje y producción musical."
+                ]
+            },
+            casioLKS250: {
+                titulo: "Casio LK-S250",
+                img1: "1lKMyKVWKfV-Xp8zR9Fpd0LeM5I6f_kVm",
+                img2: "1lKMyKVWKfV-Xp8zR9Fpd0LeM5I6f_kVm",
+                caracteristicas: [
+                    "Sistema de teclas iluminadas para facilitar el aprendizaje.",
+                    "61 teclas sensibles al tacto.",
+                    "Más de 400 tonos y ritmos incorporados.",
+                    "Conectividad con aplicaciones educativas mediante USB.",
+                    "Diseño ligero y fácil de transportar."
+                ]
+            },
+            korgB2: {
+                titulo: "Korg B2",
+                img1: "1rDowOKujsYe9cFt-um9EXEC-TPNKfx-G",
+                img2: "1rDowOKujsYe9cFt-um9EXEC-TPNKfx-G",
+                caracteristicas: [
+                    "88 teclas con acción de martillo natural.",
+                    "Sonidos de piano acústico de alta calidad.",
+                    "Sistema de altavoces integrados con gran potencia.",
+                    "Incluye diferentes sonidos de piano y teclado.",
+                    "Ideal para estudiantes avanzados y pianistas en formación."
+                ]
+            },
+            rolandGoPiano88: {
+                titulo: "Roland GO Piano 88",
+                img1: "1BQ9Bd_6UaNvNOoLzMmsN6-omf-l40EdC",
+                img2: "1BQ9Bd_6UaNvNOoLzMmsN6-omf-l40EdC",
+                caracteristicas: [
+                    "88 teclas de tamaño completo para una experiencia similar a un piano acústico.",
+                    "Sonidos de piano Roland con gran realismo.",
+                    "Conectividad Bluetooth para aplicaciones y reproducción musical.",
+                    "Diseño ligero y fácil de transportar.",
+                    "Función de grabación para practicar y mejorar la interpretación."
+                ]
+            },
+            yamahaPSRE383: {
+                titulo: "Yamaha PSR-E383",
+                img1: "1EwD8SgVKQ9wyL0bcQKzPxeWq5icmfu5s",
+                img2: "1EwD8SgVKQ9wyL0bcQKzPxeWq5icmfu5s",
+                caracteristicas: [
+                    "61 teclas sensibles a la pulsación.",
+                    "Más de 650 voces instrumentales y estilos de acompañamiento.",
+                    "Funciones educativas integradas para principiantes.",
+                    "Sonido mejorado con sistema de altavoces optimizado.",
+                    "Conectividad USB para uso con computadoras y dispositivos móviles."
+                ]
+            },
+            yamahaRydeen: {
+                titulo: "Batería Yamaha Rydeen",
+                img1: "131PFMsMZGR6ciY2tiR6M8qkRXIM9kris",
+                img2: "131PFMsMZGR6ciY2tiR6M8qkRXIM9kris",
+                caracteristicas: [
+                    "Cascos de álamo que ofrecen un sonido potente y equilibrado.",
+                    "Hardware resistente para uso intensivo.",
+                    "Excelente proyección sonora en presentaciones en vivo.",
+                    "Configuración versátil para diversos estilos musicales.",
+                    "Acabado profesional con gran durabilidad."
+                ]
+            },
+            cajonProfesional: {
+                titulo: "Cajón Peruano Profesional",
+                img1: "1OS85SZTBO6Yoq7NPnBR_iF5F6HvkVjuG",
+                img2: "1OS85SZTBO6Yoq7NPnBR_iF5F6HvkVjuG",
+                caracteristicas: [
+                    "Fabricado con madera de alta calidad y gran resistencia.",
+                    "Graves profundos y agudos definidos.",
+                    "Sistema de cuerdas internas para mayor sensibilidad sonora.",
+                    "Diseño ergónomico para una ejecución cómoda.",
+                    "Ideal para música criolla, flamenco y fusiones modernas."
+                ]
+            },
+            congaProfesional: {
+                titulo: "Conga Profesional",
+                img1: "1mu5dqZr2OH8bedxy19lmm4txEKSSOsIS",
+                img2: "1mu5dqZr2OH8bedxy19lmm4txEKSSOsIS",
+                caracteristicas: [
+                    "Construcción robusta con materiales de primera calidad.",
+                    "Sonido cálido, profundo y con gran proyección.",
+                    "Parche de alta resistencia para una mejor respuesta.",
+                    "Herrajes cromados de larga duración.",
+                    "Ideal para música latina, salsa y percusión profesional."
+                ]
+            },
+            platilloGonBops: {
+                titulo: "Platillo Profesional Gon Bops",
+                img1: "115J5NqgelHSQhAHUlKJBLWewkW81wQtc",
+                img2: "115J5NqgelHSQhAHUlKJBLWewkW81wQtc",
+                caracteristicas: [
+                    "Sonido nítido y gran volumen de proyección.",
+                    "Excelente respuesta en golpes suaves y fuertes.",
+                    "Fabricado con aleaciones de alta calidad.",
+                    "Sustain equilibrado y controlado.",
+                    "Ideal para escenarios, ensayos y grabaciones profesionales."
+                ]
+            },
+            timbalesGonBops: {
+                titulo: "Timbales Gon Bops",
+                img1: "1Pzy7ec330-7k-iByFxaYJ1fjub2iAB_a",
+                img2: "1Pzy7ec330-7k-iByFxaYJ1fjub2iAB_a",
+                caracteristicas: [
+                    "Sonido brillante y definido para ritmos latinos.",
+                    "Cascos metálicos de alta resistencia.",
+                    "Afinación precisa y fácil ajuste.",
+                    "Incluye soporte resistente para mayor estabilidad.",
+                    "Perfectos para salsa, merengue y latin jazz."
+                ]
+            }
+        };
+
+        function mostrarDetalles(clave) {
+            const info = datosModales[clave];
+            if (!info) return;
+
+            document.getElementById("modal-titulo").innerText = info.titulo;
+            fotosActualesModal = [info.img1, info.img2];
+            indiceFotoActual = 0;
+            actualizarImagenModal();
+            
+            const lista = document.getElementById("modal-caracteristicas");
+            lista.innerHTML = ""; 
+            
+            info.caracteristicas.forEach(caract => {
+                const li = document.createElement("li");
+                li.innerText = caract;
+                lista.appendChild(li);
+            });
+
+            document.getElementById("modal-producto").classList.add("activo");
+        }
+
+        function actualizarImagenModal() {
+            const idActual = fotosActualesModal[indiceFotoActual];
+            document.getElementById("modal-img").src = `https://drive.google.com/thumbnail?id=${idActual}&sz=w1000`;
+        }
+
+        function cambiarFoto(direccion) {
+            indiceFotoActual += direccion;
+            if (indiceFotoActual >= fotosActualesModal.length) {
+                indiceFotoActual = 0;
+            } else if (indiceFotoActual < 0) {
+                indiceFotoActual = fotosActualesModal.length - 1;
+            }
+            actualizarImagenModal();
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal-producto").classList.remove("activo");
+        }
+
+        // Cierra el modal si se pulsa fuera de la caja blanca
+        window.onclick = function(event) {
+            const modal = document.getElementById("modal-producto");
+            if (event.target == modal) {
+                modal.classList.remove("activo");
+            }
+        }
+
+        // Script del Carrusel Informativo Superior (Arreglado)
+        const mensajes = [
+            "💳 3 cuotas sin intereses con tarjetas BCP",
+            "🚚 Envíos, cambios y devoluciones hasta 60 días",
+            "🎵 Tenemos todas las marcas: nacionales e internacionales",
+            "🎁 Suscríbete y obtén 10% de descuento en tu primera compra"
+        ];
+
+        let indice = 0;
+        const mensaje = document.getElementById("mensaje-carrusel");
+
+        function mostrarMensaje(){
+            mensaje.innerHTML = mensajes[indice];
+            mensaje.style.transition = "none";
+            mensaje.style.left = "100%";
+
+            setTimeout(() => {
+                mensaje.style.transition = "left 1s ease";
+                mensaje.style.left = "50%"; // ✔ CORREGIDO: Ya no rompe el JavaScript
+                mensaje.style.transform = "translateX(-50%)";
+            }, 100);
+
+            setTimeout(() => {
+                mensaje.style.transition = "left 1s ease";
+                mensaje.style.left = "-100%";
+            }, 3100);
+
+            indice++;
+            if(indice >= mensajes.length){ indice = 0; }
+        }
+
+        mostrarMensaje();
+        setInterval(mostrarMensaje, 4200);
+    </script>
+</body>
+</html>
